@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../Context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { user, emailPasswordLogin } = useContext(UserContext);
+    const navigate = useNavigate()
     // console.log(user)
     const handelLogin = event => {
         event.preventDefault();
@@ -10,6 +12,7 @@ const Login = () => {
         const password = event.target.password.value;
         emailPasswordLogin(email, password);
         event.target.reset();
+        navigate("/home")
 
     }
     return (
