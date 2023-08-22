@@ -41,11 +41,21 @@ const Header = () => {
                         <Link to="/orders">Orders</Link>
                     </li>
                     <li className='font-bold text-white'>
-                        <Link to="/login">Log In</Link>
-                    </li>
-                    <li className='font-bold text-white'>
                         <Link to="/registration">Registration</Link>
                     </li>
+                    {/* <li className='font-bold text-white'>
+                        <Link to="/login">Log In</Link>
+                    </li> */}
+                    {
+                        user ?
+                            <li className='font-bold text-white'>
+                                <button>Log Out</button>
+                            </li>
+                            : <li className='font-bold text-white'>
+                                <Link to="/login">Log In</Link>
+                            </li>
+
+                    }
 
 
                 </ul>
@@ -56,6 +66,7 @@ const Header = () => {
 
             </div>
             <div className="navbar-end">
+
                 <button onClick={handelSignOut} className="btn">Log Out</button>
             </div>
         </div>
